@@ -1,0 +1,13 @@
+{
+  "name": "mangone-law-plugins",
+  "owner": {
+    "name": "Mangone Law Firm"
+  },
+  "plugins": [
+    {
+      "name": "t-visa-declaration",
+      "source": "./plugins/t-visa-declaration",
+      "description": "T-Visa personal declaration writer using a 5-phase AI pipeline"
+    }
+  ]
+}

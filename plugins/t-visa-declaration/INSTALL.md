@@ -30,7 +30,7 @@ Generates T-visa personal declarations from interview transcripts using a 5-phas
 1. Open [claude.ai](https://claude.ai) → Cowork tab
 2. Click the `+` button or type `/` to open the command palette
 3. Select **Manage plugins** → **Install from local folder**
-4. Browse to and select the `t-visa-plugin/` folder
+4. Browse to and select the `plugins/t-visa-declaration/` folder
 5. Confirm installation
 
 **Verify:** Type `/` in any conversation. You should see `/t-visa-declaration:generate-declaration` in the list.
@@ -40,14 +40,14 @@ Generates T-visa personal declarations from interview transcripts using a 5-phas
 Load the plugin in your session:
 
 ```bash
-claude --plugin-dir ./t-visa-plugin
+claude --plugin-dir ./plugins/t-visa-declaration
 ```
 
 Or install permanently by adding to your Claude Code settings:
 
 ```json
 {
-  "plugins": ["path/to/t-visa-plugin"]
+  "plugins": ["path/to/plugins/t-visa-declaration"]
 }
 ```
 
@@ -92,7 +92,7 @@ The plugin's rules live in editable files. To update them after attorney feedbac
 ## Sharing the Plugin with Your Team
 
 **Individual sharing:**
-1. Zip the `t-visa-plugin/` folder
+1. Zip the `plugins/t-visa-declaration/` folder
 2. Share the zip
 3. Each team member extracts and installs following steps above
 
@@ -105,27 +105,30 @@ The plugin's rules live in editable files. To update them after attorney feedbac
 ## Folder Structure Reference
 
 ```
-t-visa-plugin/
+claude-plugin-dec-writter/              ← Repo root (marketplace)
 ├── .claude-plugin/
-│   └── plugin.json              ← Plugin manifest (name, version)
+│   └── marketplace.json                ← Marketplace manifest
 │
-├── commands/
-│   └── generate-declaration.md  ← /t-visa-declaration:generate-declaration
+├── plugins/
+│   └── t-visa-declaration/             ← Plugin root
+│       ├── .claude-plugin/
+│       │   └── plugin.json             ← Plugin manifest (name, version)
+│       ├── commands/
+│       │   └── generate-declaration.md ← /t-visa-declaration:generate-declaration
+│       ├── agents/
+│       │   ├── phase-1-extractor.md    ← Fact extraction from transcript
+│       │   ├── phase-2-classifier.md   ← Classification + paragraph plan + gap analysis
+│       │   ├── phase-3-writer.md       ← Section writer (called 9 times, once per section)
+│       │   ├── phase-4-reviewer.md     ← Coherence review + quality corrections
+│       │   └── phase-5-notes.md        ← Attorney notes generator
+│       ├── skills/
+│       │   ├── quality-benchmarks/
+│       │   │   └── SKILL.md            ← Always-active quality rules
+│       │   └── system-rules/
+│       │       └── SKILL.md            ← All rules from 8 attorney feedback rounds
+│       └── INSTALL.md                  ← This file
 │
-├── agents/
-│   ├── phase-1-extractor.md     ← Fact extraction from transcript
-│   ├── phase-2-classifier.md    ← Classification + paragraph plan + gap analysis
-│   ├── phase-3-writer.md        ← Section writer (called 9 times, once per section)
-│   ├── phase-4-reviewer.md      ← Coherence review + quality corrections
-│   └── phase-5-notes.md         ← Attorney notes generator
-│
-├── skills/
-│   ├── quality-benchmarks/
-│   │   └── SKILL.md             ← Always-active quality rules (word counts, HARD FAILs)
-│   └── system-rules/
-│       └── SKILL.md             ← All rules from 7 attorney feedback rounds
-│
-└── INSTALL.md                   ← This file
+└── README.md
 ```
 
 ---
@@ -133,7 +136,7 @@ t-visa-plugin/
 ## Troubleshooting
 
 **Plugin not appearing in command list:**
-- Check that `t-visa-plugin/.claude-plugin/plugin.json` exists and is valid JSON
+- Check that `plugins/t-visa-declaration/.claude-plugin/plugin.json` exists and is valid JSON
 - Restart the Cowork session or Claude Code session
 
 **Declaration is too long:**
