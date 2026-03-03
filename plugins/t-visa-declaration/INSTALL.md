@@ -58,7 +58,7 @@ Or install permanently by adding to your Claude Code settings:
 
 ## n8n MCP Server Setup
 
-Phases 1 (fact extraction) and 2 (classification) run on n8n via MCP. You need to configure the connection before running the pipeline.
+The plugin bundles the MCP server configuration in `.mcp.json` at the plugin root. When you install the plugin, the MCP connection is registered automatically. You only need to update the URL to point to your n8n instance.
 
 ### 1. n8n Workflow Requirements
 
@@ -70,9 +70,9 @@ Your n8n instance must have a workflow with an **MCP Server Trigger** node:
 
 Configure the tool name and input schema on the MCP Server Trigger node to match the table above.
 
-### 2. Register the MCP Server
+### 2. Update the MCP URL
 
-Create a `.mcp.json` file in your project root (or add to your existing one):
+After installing the plugin, edit the `.mcp.json` file inside the plugin folder and replace the placeholder URL with your actual n8n Cloud MCP endpoint:
 
 ```json
 {
@@ -85,12 +85,9 @@ Create a `.mcp.json` file in your project root (or add to your existing one):
 }
 ```
 
-Replace the URL with your actual n8n Cloud MCP endpoint.
-
 ### 3. Verify Connection
 
-After configuring, restart Claude Code and check that the tool is available:
-- `mcp__n8n-tvisa__extract_and_classify`
+Restart your Cowork session and check that the tool `mcp__n8n-tvisa__extract_and_classify` is available.
 
 ---
 
@@ -152,6 +149,7 @@ claude-plugin-dec-writter/              ← Repo root (marketplace)
 │   └── t-visa-declaration/             ← Plugin root
 │       ├── .claude-plugin/
 │       │   └── plugin.json             ← Plugin manifest (name, version)
+│       ├── .mcp.json                   ← n8n MCP server config (bundled)
 │       ├── commands/
 │       │   └── generate-declaration.md ← /t-visa-declaration:generate-declaration
 │       ├── agents/
@@ -188,9 +186,10 @@ claude-plugin-dec-writter/              ← Repo root (marketplace)
 
 **Phase 1 or 2 not responding (n8n MCP):**
 - Check that your n8n workflows are active (not paused)
-- Verify the MCP server URL in `.mcp.json` is correct
+- Verify the MCP server URL in the plugin's `.mcp.json` matches your n8n instance
 - Check n8n execution logs for errors
-- Ensure the MCP Server Trigger node has the correct tool name (`extract_and_classify`)
+- Ensure the MCP Server Trigger node has the tool name `extract_and_classify`
+- Restart the Cowork session after any `.mcp.json` changes
 
 **Phase 3 or 4 not responding (local agents):**
 - These run as Claude Code subagents — if one fails, the main conversation will show an error
