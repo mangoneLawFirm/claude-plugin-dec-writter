@@ -169,55 +169,116 @@ After `AskUserQuestion` returns:
 
 ---
 
-### PHASE 3 — Section Writing (Loop through 9 sections)
+### PHASE 3 — Section Writing (Parallel Batches)
 
-Write sections IN THIS ORDER using the `phase-3-writer` agent for each:
-1. header
-2. introduction
-3. background
-4. trafficking ← uses paragraph_plan from Phase 2
-5. physical_presence
-6. law_enforcement
-7. extreme_hardship
-8. moral_character
-9. conclusion
+Sections are split into two batches that run **concurrently**:
 
-For EACH section, invoke the `phase-3-writer` agent and provide:
-- `section_name`: the section being written
-- `assigned_facts`: the facts from `phase2_output.section_assignments.[section_name]`
-  - For background: use `background_confirmed_facts` (from AskUserQuestion response) instead of the full assignment
-- `emp_mapping`: (trafficking only) `phase2_output.section_assignments.trafficking.emp_mapping`
-- `paragraph_plan`: (trafficking only) `phase2_output.section_assignments.trafficking.paragraph_plan`
-- `gaps_for_this_section`: relevant gaps from `phase2_output.gap_analysis`
-- `previously_written_sections`: accumulated text of all sections written so far
-- `last_paragraph_number`: the number of the last paragraph written (start at 0 for header)
+**Batch A** — Independent sections (launch ALL 5 simultaneously as parallel Task calls):
+- `header`
+- `introduction`
+- `law_enforcement`
+- `moral_character`
+- `conclusion`
 
-After each section, collect the output and update:
-- `accumulated_draft` (append the new section)
-- `last_paragraph_number` (update from agent's LAST_PARAGRAPH_NUMBER output)
+**Batch B** — Dependent chain (run sequentially, each waits for the prior):
+- `background` → `trafficking` → `physical_presence` → `extreme_hardship`
 
-Wait for each section to complete before starting the next.
+**Launch Batch A and Batch B at the same time.** Batch A sections run in parallel with each other AND with the Batch B chain.
 
 ---
 
-### PHASE 4 — Coherence Review
+#### Batch A — Parallel sections
 
+For each Batch A section, invoke the `phase-3-writer` agent with:
+- `section_name`: the section being written
+- `assigned_facts`: the facts from `phase2_output.section_assignments.[section_name]`
+- `gaps_for_this_section`: relevant gaps from `phase2_output.gap_analysis`
+- `previously_written_sections`: "" (empty — these sections have no cross-dependencies)
+- `last_paragraph_number`: 0 (temporary — will be renumbered during assembly)
+
+Batch A sections use **temporary paragraph numbering** starting from 1. The assembly step will assign final numbers.
+
+---
+
+#### Batch B — Sequential chain
+
+Run these 4 sections in order. Each section waits for the prior to complete before starting.
+
+**Step B1 — background:**
+- `section_name`: "background"
+- `assigned_facts`: use `background_confirmed_facts` (from AskUserQuestion response)
+- `gaps_for_this_section`: relevant gaps
+- `previously_written_sections`: "" (empty — background is the chain start)
+- `last_paragraph_number`: 0
+
+Save the background output and its `LAST_PARAGRAPH_NUMBER`.
+
+**Step B2 — trafficking:**
+- `section_name`: "trafficking"
+- `assigned_facts`: `phase2_output.section_assignments.trafficking`
+- `emp_mapping`: `phase2_output.section_assignments.trafficking.emp_mapping`
+- `paragraph_plan`: `phase2_output.section_assignments.trafficking.paragraph_plan`
+- `gaps_for_this_section`: relevant gaps
+- `previously_written_sections`: the **background section text only** (NOT all prior sections)
+- `last_paragraph_number`: from background's output
+
+Save the trafficking output and its `LAST_PARAGRAPH_NUMBER`.
+
+**Step B3 — physical_presence:**
+- `section_name`: "physical_presence"
+- `assigned_facts`: `phase2_output.section_assignments.physical_presence`
+- `gaps_for_this_section`: relevant gaps
+- `previously_written_sections`: the **trafficking section text only**
+- `last_paragraph_number`: from trafficking's output
+
+Save the physical_presence output and its `LAST_PARAGRAPH_NUMBER`.
+
+**Step B4 — extreme_hardship:**
+- `section_name`: "extreme_hardship"
+- `assigned_facts`: `phase2_output.section_assignments.extreme_hardship`
+- `gaps_for_this_section`: relevant gaps
+- `previously_written_sections`: the **physical_presence section text only**
+- `last_paragraph_number`: from physical_presence's output
+
+---
+
+#### Assembly — After BOTH batches complete
+
+Wait for all Batch A and Batch B tasks to finish. Then assemble the `accumulated_draft` by joining sections in this canonical order:
+
+1. header (from Batch A)
+2. introduction (from Batch A)
+3. background (from Batch B)
+4. trafficking (from Batch B)
+5. physical_presence (from Batch B)
+6. law_enforcement (from Batch A)
+7. extreme_hardship (from Batch B)
+8. moral_character (from Batch A)
+9. conclusion (from Batch A)
+
+**Renumber paragraphs sequentially.** Batch B sections already have correct relative numbering within the chain (background → trafficking → PP → EH). Batch A sections used temporary numbers. Walk through the assembled draft and renumber all paragraphs (¶1, ¶2, ¶3, ...) sequentially from start to end. This is a simple text replacement — find each paragraph number and replace with the correct sequential number.
+
+---
+
+### PHASE 4 + PHASE 5 — Run in Parallel
+
+Launch both agents **simultaneously** as parallel Task calls:
+
+**Phase 4 — Coherence Review:**
 Use the `phase-4-reviewer` agent. Provide:
 - The complete `accumulated_draft`
 
 The agent returns the corrected final declaration. Save as `final_declaration`.
 
----
-
-### PHASE 5 — Attorney Notes
-
+**Phase 5 — Attorney Notes:**
 Use the `phase-5-notes` agent. Provide:
-- The `final_declaration`
+- The `accumulated_draft` (the pre-review assembled declaration — Phase 5 analyzes gaps and weaknesses, not prose quality)
 - The `phase2_output.gap_analysis` (for gaps not resolved by user answers)
 - The `phase2_output.attorney_decision_points`
-- The `phase1_output` (for reference)
 
 The agent returns the attorney notes document. Save as `attorney_notes`.
+
+**Wait for both to complete before proceeding to Output.**
 
 ---
 
