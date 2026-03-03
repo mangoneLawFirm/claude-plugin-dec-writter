@@ -153,8 +153,6 @@ claude-plugin-dec-writter/              ← Repo root (marketplace)
 │       ├── commands/
 │       │   └── generate-declaration.md ← /t-visa-declaration:generate-declaration
 │       ├── agents/
-│       │   ├── phase-1-extractor.md    ← Fact extraction from transcript
-│       │   ├── phase-2-classifier.md   ← Classification + paragraph plan + gap analysis
 │       │   ├── phase-3-writer.md       ← Section writer (called 9 times, once per section)
 │       │   ├── phase-4-reviewer.md     ← Coherence review + quality corrections
 │       │   └── phase-5-notes.md        ← Attorney notes generator
