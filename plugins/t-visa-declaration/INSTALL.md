@@ -2,13 +2,13 @@
 
 ## What This Plugin Does
 
-Generates T-visa personal declarations from interview transcripts using a 5-phase AI pipeline:
+Generates T-visa personal declarations from interview transcripts using a hybrid pipeline:
 
-1. **Extract** — pulls all facts from the raw transcript into structured JSON
-2. **Classify** — assigns facts to sections, creates trafficking paragraph plan, identifies gaps
-3. **Ask** — asks you 3-5 critical gap questions in the conversation (replaces the Slack Q&A step)
-4. **Write** — writes all 9 declaration sections using only their assigned facts
-5. **Review** — coherence review + quality checks from 7 rounds of attorney feedback
+1. **Extract** (n8n MCP) — pulls all facts from the raw transcript into structured JSON
+2. **Classify** (n8n MCP) — assigns facts to sections, creates trafficking paragraph plan, identifies gaps
+3. **Ask** (local) — asks you 3-5 critical gap questions in the conversation
+4. **Write** (local) — writes all 9 declaration sections using only their assigned facts
+5. **Review** (local) — coherence review + quality checks from 8 rounds of attorney feedback
 6. **Notes** — generates attorney action items document
 
 **Outputs:** Two files — the declaration + attorney review notes.
@@ -20,6 +20,7 @@ Generates T-visa personal declarations from interview transcripts using a 5-phas
 - Claude Cowork account (Pro, Max, Team, or Enterprise plan)
 - Claude Code version 1.0.33 or later (for Claude Code users)
 - Access to local plugin installation (currently in research preview)
+- **n8n Cloud instance** with Phase 1 and Phase 2 workflows deployed (MCP Server Trigger)
 
 ---
 
@@ -52,6 +53,44 @@ Or install permanently by adding to your Claude Code settings:
 ```
 
 **Verify:** Run `/t-visa-declaration:generate-declaration --help` or type `/` to see the command.
+
+---
+
+## n8n MCP Server Setup
+
+Phases 1 (fact extraction) and 2 (classification) run on n8n via MCP. You need to configure the connection before running the pipeline.
+
+### 1. n8n Workflow Requirements
+
+Your n8n instance must have a workflow with an **MCP Server Trigger** node:
+
+| Workflow | Tool Name | Input Parameters | Output |
+|----------|-----------|-----------------|--------|
+| Extract & Classify | `extract_and_classify` | `transcript` (string), `supplemental_notes` (string) | JSON with `section_assignments`, `gap_analysis`, `attorney_decision_points` |
+
+Configure the tool name and input schema on the MCP Server Trigger node to match the table above.
+
+### 2. Register the MCP Server
+
+Create a `.mcp.json` file in your project root (or add to your existing one):
+
+```json
+{
+  "mcpServers": {
+    "n8n-tvisa": {
+      "type": "sse",
+      "url": "https://YOUR-N8N-INSTANCE.app.n8n.cloud/mcp/sse"
+    }
+  }
+}
+```
+
+Replace the URL with your actual n8n Cloud MCP endpoint.
+
+### 3. Verify Connection
+
+After configuring, restart Claude Code and check that the tool is available:
+- `mcp__n8n-tvisa__extract_and_classify`
 
 ---
 
@@ -147,8 +186,14 @@ claude-plugin-dec-writter/              ← Repo root (marketplace)
 - This is a HARD FAIL caught by Phase 4 review
 - If it still happens, manually remove and report as a bug by opening an issue
 
-**Phase agent not responding:**
-- Each phase runs as a subagent — if one fails, the main conversation will show an error
+**Phase 1 or 2 not responding (n8n MCP):**
+- Check that your n8n workflows are active (not paused)
+- Verify the MCP server URL in `.mcp.json` is correct
+- Check n8n execution logs for errors
+- Ensure the MCP Server Trigger node has the correct tool name (`extract_and_classify`)
+
+**Phase 3 or 4 not responding (local agents):**
+- These run as Claude Code subagents — if one fails, the main conversation will show an error
 - Try re-running the command; if the issue persists, run phases individually using the agent names directly
 
 ---

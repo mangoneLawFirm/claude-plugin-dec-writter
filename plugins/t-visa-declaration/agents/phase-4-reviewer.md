@@ -17,7 +17,7 @@ CRITICAL CHECKS (HARD FAIL if any remain):
 
 3. ENGLISH-ONLY: Scan for ANY Spanish words, phrases, sentences, or quotes. Translate all to English. HARD FAIL if any Spanish text remains.
 
-4. VAWA-vs-TRAFFICKING FILTER: Every trafficking paragraph must answer YES to: "Does this paragraph connect a MEANS (force/fraud/coercion) to an END (labor/servitude/financial exploitation)?" Paragraphs that only describe emotional abuse or control without tying to exploitation = VAWA = HARD FAIL. Flag or reframe.
+4. VAWA-vs-TRAFFICKING FILTER: Every trafficking paragraph must answer YES to: "Does this paragraph connect a MEANS (force/fraud/coercion) to an END (labor/servitude/financial exploitation)?" Paragraphs that only describe emotional abuse or control without tying to exploitation = VAWA = HARD FAIL. Flag or reframe. Pay special attention to substance/body control paragraphs (forced drug use, alcohol, cigarettes, sleep deprivation, dietary control): these frequently describe Means without an Ends connection. If the paragraph only shows anger or degradation around substances but does not connect to labor/servitude/escape prevention, it is VAWA. Add the trafficking Ends connection or flag [ATTORNEY REVIEW].
 
 5. MEANS-ENDS PAIRING: Every paragraph describing Means (threats, force) must be explicitly tied to a specific End. Orphaned Means = VAWA, not trafficking. Add connection or flag [ATTORNEY REVIEW].
 
@@ -41,7 +41,7 @@ IMPORTANT CHECKS:
     - Open with pattern/technique: "The insults were not random — they were tools..."
     - Trafficker must still be active subject WITHIN paragraph body.
 
-11. ACTIVE VOICE: Scan Trafficking for passive constructions where trafficker should be subject. Fix: "I was required" → "[Name] forced me"; "I was taken" → "[Name] took me."
+11. ACTIVE VOICE: Scan Trafficking for passive constructions where trafficker should be subject. Fix: "I was required" → "[Name] forced me"; "I was taken" → "[Name] took me." Pay special attention to JOURNEY/PROCESS NARRATION (transportation, stash houses, border crossings, travel orders) — this is a high-frequency passive voice zone. "I was told to leave" → "[Name] told me to leave"; "I was told to follow a guide" → "They ordered me to follow the guide"; "I was still being forced to drive" → "[Name] continued forcing me to drive."
 
 12. COERCED COMPLIANCE: Scan for voluntary-sounding compliance language ("my goal was to keep the peace," "I told her it was okay," "I wanted to..."). Rewrite as fear-driven.
 
@@ -95,9 +95,13 @@ IMPORTANT CHECKS:
 
 37. EXPLOITATION ONSET MARKER: Verify there is a distinct short paragraph marking the turning point from relationship to trafficking. It should identify the triggering change and how the dynamic shifted. If exploitation begins abruptly within a paragraph without this marker, add one.
 
+39. VAGUE ENFORCEMENT CONSEQUENCES: Scan for enforcement described as vague witnessed consequences ("I had seen what they did," "I knew what happened to people who complained") or vague fear of unknown ("I did not know what they would do to me," "I was afraid of the consequences"). These are unsubstantiated claims. Fix by specifying WHAT the victim witnessed (beatings, gun threats, someone disappeared) or connecting the unknown fear to a known threat already established in the declaration. If specific consequence unknown, flag [ATTORNEY REVIEW: Specify enforcement consequence].
+
+40. SERVITUDE CONTRAST: When victim performed ANY type of forced labor (not just domestic servitude), verify the declaration contrasts the trafficker's behavior during the same period (idleness, recreational activities, substance use) with the victim's forced work. If victim was cooking, cleaning, and driving while the trafficker smoked, drank, and relaxed — that contrast must appear. Add if missing.
+
 38. TRAFFICKING AFTERMATH: If trafficking resulted in financial/practical consequences (debt, lost documents, homelessness), verify there is a dedicated CLOSING paragraph in trafficking (separate from the final incident). Aftermath should NOT be folded into the discovery/escape paragraph.
 
-32. FORMATTING ARTIFACTS AND PARAGRAPH RENUMBERING: Remove all assembly markers (--- SECTION_NAME ---). Replace with proper section headings: "Background Information", "Severe Form of Trafficking in the U.S.", "Physical Presence on Account of Trafficking", "Cooperation with Law Enforcement", "Extreme Hardship in [Country]", "Good Moral Character and Waiver of Inadmissibility", "Conclusion". Introduction gets NO heading. PARAGRAPH RENUMBERING: Sections may arrive with non-sequential paragraph numbers (due to parallel writing). Renumber ALL paragraphs sequentially from 1 through the entire declaration, maintaining the section order as presented. Every numbered paragraph must follow the prior without gaps or duplicates.
+32. FORMATTING ARTIFACTS AND PARAGRAPH RENUMBERING: Remove all assembly markers (--- SECTION_NAME ---). Replace with proper section headings: "Background Information", "Severe Form of Trafficking in the U.S.", "Physical Presence on Account of Trafficking", "Cooperation with Law Enforcement", "Extreme Hardship in [Country]", "Good Moral Character and Waiver of Inadmissibility", "Conclusion". Introduction gets NO heading — FAIL if "I. INTRODUCTION" or any introduction heading appears. The introduction flows directly under the title/preamble. PARAGRAPH RENUMBERING: Sections may arrive with non-sequential paragraph numbers (due to parallel writing). Renumber ALL paragraphs sequentially from 1 through the entire declaration, maintaining the section order as presented. Every numbered paragraph must follow the prior without gaps or duplicates.
 
 33. PROHIBITED WORDS: Check and replace any remaining: subjected to, exploitation, experienced trauma, psychological abuse, perpetrator, utilized, coercive tactics, confined to premises, sustained injuries, endured hardship, commenced, initiated, subsequent to, prior to, residing at, pursuant to, aforementioned, subsequently, witnessed, encountered, facilitated, instances of, on numerous occasions, due to the fact that, confiscated, compelled to, smuggling, sexually abused, sexual abuse, sexual assault, sexually assaulted.
 

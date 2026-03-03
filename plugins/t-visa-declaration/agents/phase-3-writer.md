@@ -43,6 +43,11 @@ ACTIVE VOICE RULE — MANDATORY:
 When describing the trafficker's actions, the TRAFFICKER must be the grammatical subject.
 - NEVER: "I was required to cook" → ALWAYS: "Carmelo forced me to cook"
 - NEVER: "I was taken to Charlotte" → ALWAYS: "Carmelo took me to Charlotte"
+- JOURNEY/PROCESS NARRATION (high-frequency violation zone): Transportation, orders during travel, instructions at stash houses, and border crossing narration commonly slip into passive voice. The trafficker/handler/armed men giving orders must remain the grammatical subject:
+  - NEVER: "I was told to leave" → ALWAYS: "They told me to leave" / "[Name] ordered me to leave"
+  - NEVER: "I was told to follow a guide" → ALWAYS: "They ordered me to follow the guide"
+  - NEVER: "I was still being forced to drive" → ALWAYS: "[Name] continued forcing me to drive"
+  - NEVER: "I was taken to a house" → ALWAYS: "They took me to a house" / "The armed men brought me to a house"
 
 PROHIBITED FRAMING — NEVER USE:
 - "afraid they would fire me" / "scared of losing the job" → implies voluntary employment, HARD FAIL
@@ -88,6 +93,10 @@ FOR BACKGROUND:
 - NO US-side vulnerability paragraph that establishes desperation ("willing to take any job")
 - End with clear connection to vulnerability
 
+FOR INTRODUCTION:
+- Do NOT output any heading. No "I. INTRODUCTION", no "INTRODUCTION", no heading of any kind. The introduction paragraph flows directly under the declaration title and preamble line.
+- 1 paragraph only: client's full name, reference to trafficking, and statement of what is being requested.
+
 FOR TRAFFICKING:
 - Follow the paragraph plan from Phase 2 EXACTLY
 - RECRUITMENT PROGRESSION: When recruitment was gradual (relationship-based trafficking), the setup phase MAY span 2-4 paragraphs showing the progression:
@@ -103,10 +112,17 @@ FOR TRAFFICKING:
 - Trafficker's name as subject of FIRST MAIN CLAUSE: max 2-3 paragraphs total (this DOES count when preceded by brief prep phrases like "After I moved in, [Trafficker]...")
 - VAWA-vs-TRAFFICKING FILTER: Every paragraph must connect MEANS to ENDS. Abuse without exploitation End = VAWA, not trafficking.
 - Every Means paragraph must be explicitly tied to a specific End (labor, servitude, financial exploitation)
+- SUBSTANCE/BODY CONTROL VAWA TRAP: When traffickers force substance use (drugs, alcohol, cigarettes), dietary restrictions, sleep deprivation, or other body/lifestyle control on the victim, the paragraph MUST explicitly connect this to a trafficking End — e.g., creating chemical dependency to prevent escape, keeping victim compliant for forced labor, weakening victim's ability to resist servitude demands. Without the Ends connection, body/substance control = VAWA, not trafficking. WRONG: "He forced me to smoke and drink with him every night, and he would get angry if I refused." RIGHT: "He pressured me to drink alcohol with him most nights. When I was hungover the next morning, I was too weak and disoriented to resist his demands that I cook, clean, and drive for him. The drinking kept me dependent and unable to think clearly about how to escape."
 - Compliance must ALWAYS be fear-driven, never voluntary ("keep the peace")
 - Surveillance = labor/service control tool, NOT jealousy
 - Financial control: trafficker as active agent, include amounts/% salary/work hours
+- SERVITUDE CONTRAST (all forced labor): Whenever victim performs forced labor of ANY type (domestic servitude, stash house labor, forced driving, cooking, cleaning, manual work), contrast with the trafficker's behavior during the same period (idleness, recreational activities, substance use while victim worked). This proves the power dynamic and servitude relationship. Applies to ALL forced labor cases, not just domestic servitude.
 - Each control method: HOW it was gained + HOW compliance was enforced (threats/consequences, not just "forced me")
+- VAGUE-CONSEQUENCE PROHIBITION: Enforcement mechanisms must state SPECIFIC consequences the victim witnessed or believed. Vague formulations are unsubstantiated claims:
+  - WRONG: "I had seen what they did to people who complained" → RIGHT: "I had seen the leader beat a man who refused to work until he could not stand up"
+  - WRONG: "I did not know what they would do to me" → RIGHT: "The leader had already threatened to kill anyone who disobeyed, so I believed he would do the same to me"
+  - WRONG: "I was afraid of the consequences" → RIGHT: "I was afraid they would report me to immigration and have me deported, as they had threatened to do many times"
+  Every enforcement statement must answer: WHAT SPECIFIC consequence did the victim fear or witness?
 - Include specific trigger scenes (not abstract patterns)
 - Include 3-5 natural speech markers (memory anchors, hedging, self-corrections)
 - Wage exploitation: hours worked × promised rate vs actual pay = math proves fraud

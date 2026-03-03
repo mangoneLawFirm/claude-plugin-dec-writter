@@ -1,10 +1,10 @@
 ---
 name: system-rules
-description: All attorney-verified rules added to the T-visa pipeline from 7 rounds of attorney feedback. Reference when writing or reviewing any part of a T-visa declaration to avoid known failure patterns.
+description: All attorney-verified rules added to the T-visa pipeline from 9 rounds of attorney feedback. Reference when writing or reviewing any part of a T-visa declaration to avoid known failure patterns.
 ---
 
 # System Rules — T-Visa Declaration Pipeline
-## (7 Attorney Feedback Rounds)
+## (9 Feedback Rounds)
 
 ---
 
@@ -13,6 +13,7 @@ description: All attorney-verified rules added to the T-visa pipeline from 7 rou
 ### VAWA-vs-TRAFFICKING FILTER
 Every trafficking paragraph must connect MEANS (force/fraud/coercion) to ENDS (labor/servitude/financial exploitation). A paragraph that only describes emotional abuse, jealousy, controlling behavior, or insults WITHOUT tying them to labor/servitude/financial exploitation reads as domestic violence (VAWA), not trafficking. This destroys the T-visa case.
 - Common VAWA patterns to reframe: "She insulted me and made me feel small" → add what labor/service the insults enforced; "I sent my location to avoid problems" → reframe as labor/service monitoring; surveillance framed as jealousy → reframe as labor/earnings monitoring
+- Substance/body control VAWA trap: Forced drug use, alcohol, cigarettes, sleep deprivation, dietary control paragraphs MUST connect to trafficking Ends (creating dependency to prevent escape, keeping victim compliant for forced labor, weakening resistance to servitude). Body control without Ends connection = general abuse = VAWA.
 
 ### MEANS-ENDS MANDATORY PAIRING
 Every paragraph describing Means (threats, force, coercion) must explicitly connect to a specific End (labor, servitude, financial exploitation). Orphaned Means = VAWA, not trafficking.
@@ -32,6 +33,12 @@ NEVER frame victim's fear as fear of being fired or losing a job. This implies v
 ### ENFORCEMENT MECHANISM REQUIRED (ELEVATED — CRITICAL)
 Every forced action must specify HOW compliance was enforced: what threats were made, what consequences the victim believed would occur. "She forced me to clean" without explaining HOW = FAIL.
 - Wrong: "She forced me to cook" | Right: "She threatened to call immigration if I refused, so I cooked..."
+- VAGUE-CONSEQUENCE PROHIBITION: Enforcement must state SPECIFIC consequences, not vague references:
+  - WRONG: "I had seen what they did to people who complained" (WHAT did they do?)
+  - WRONG: "I did not know what they would do to me" (fear of unknown is not specific enforcement)
+  - WRONG: "I was afraid of the consequences" (WHAT consequences?)
+  - RIGHT: "I had seen the leader beat a man who refused to work" | "The leader had already threatened to kill anyone who disobeyed, so I believed he would do the same to me"
+  Every enforcement statement must answer: WHAT SPECIFIC consequence did the victim fear or witness?
 
 ### ENGLISH-ONLY LANGUAGE
 Entire declaration must be in English. All quotes translated. No Spanish words, exclamations, or parenthetical terms. HARD FAIL if any Spanish text remains.
@@ -44,6 +51,9 @@ Entire declaration must be in English. All quotes translated. No Spanish words, 
 Trafficker must be the grammatical subject of action verbs. Never passive.
 - WRONG: "I was required to cook" | RIGHT: "Carmelo forced me to cook"
 - WRONG: "I was taken to Charlotte" | RIGHT: "Carmelo took me to Charlotte"
+- JOURNEY/PROCESS NARRATION (high-frequency violation zone): Transportation, travel orders, stash house instructions, and border crossing narration commonly slip into passive. The person giving orders MUST be grammatical subject:
+  - NEVER: "I was told to leave" | "I was told to follow a guide" | "I was still being forced to drive"
+  - ALWAYS: "They told me to leave" | "They ordered me to follow the guide" | "[Name] continued forcing me to drive"
 
 ### SEXUAL VIOLENCE LANGUAGE
 NEVER "sexually abused," "sexual assault," or clinical terms. ALWAYS "sexual slave," "sexual servitude," "forced into sexual servitude," "forced himself on me."
@@ -62,6 +72,9 @@ Default to direct quoted speech for trafficker's threats. All quotes in English.
 
 ### PARAGRAPH OPENING VARIETY
 Max 2-3 trafficking paragraphs may have the trafficker as subject of the FIRST MAIN CLAUSE (counts even if brief prep phrase precedes: "After I moved in, Vanessa..." still counts). Open with victim's experience, emotion, pattern/technique, or full contextual scene instead. Trafficker remains active subject WITHIN paragraph body.
+
+### INTRODUCTION — NO HEADING
+The introduction section must NOT have any heading. No "I. INTRODUCTION", no "INTRODUCTION", no heading of any kind. The introduction paragraph flows directly under the declaration title and preamble line. FAIL if any introduction heading appears.
 
 ### BACKGROUND LIMIT
 STRICTLY 2-3 paragraphs. Every sentence must pass vulnerability test. No 3rd paragraph without attorney override.
@@ -119,8 +132,8 @@ At least one specific trigger scene per major control method. Avoid abstract-onl
 ### CHILD SEPARATION FRAMING
 Parent wanted child but was UNABLE to take custody due to trafficking circumstances. Never sounds voluntary.
 
-### SERVITUDE CONTRAST
-Domestic servitude paragraphs must contrast trafficker's idleness with victim's forced labor.
+### SERVITUDE CONTRAST (ALL FORCED LABOR)
+Whenever victim performs forced labor of ANY type (domestic servitude, stash house labor, forced driving, cooking, cleaning, any manual work), contrast with the trafficker's behavior during the same period (idleness, recreational activities, substance use). This proves the power dynamic and servitude relationship. Not limited to domestic servitude — applies to ALL forced labor cases.
 
 ### RECRUITMENT INFORMATION EXTRACTION
 Show how trafficker learned victim's vulnerabilities (asked about traumas, family situation, etc.) under pretense of genuine interest.

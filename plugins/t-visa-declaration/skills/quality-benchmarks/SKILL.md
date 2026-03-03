@@ -37,9 +37,9 @@ description: T-visa declaration quality rules and pass/fail criteria. Reference 
 - Setup phase ENDS with an Exploitation Onset Marker: a distinct short paragraph identifying the turning point (triggering change, power shift, new demands)
 
 **Every Trafficking Paragraph Must:**
-- Connect MEANS (force/fraud/coercion) to ENDS (labor/servitude/financial exploitation)
+- Connect MEANS (force/fraud/coercion) to ENDS (labor/servitude/financial exploitation). Substance/body control (forced drug use, alcohol, sleep deprivation, dietary control) MUST connect to trafficking Ends (dependency to prevent escape, compliance for forced labor, weakening resistance). Without Ends connection = VAWA.
 - Show HOW control was established (mechanism, not just "forced me")
-- Show HOW compliance was enforced (specific threats/consequences)
+- Show HOW compliance was enforced (specific threats/consequences). Enforcement consequences must be SPECIFIC, not vague: "I had seen what they did" must say WHAT; "I did not know what they would do" must connect to an established threat. Vague enforcement = unsubstantiated claim.
 - Name the trafficker as active grammatical subject
 - Pass ISOLATION INTEGRITY check: no detail that proves victim had outside support/contact (third-party exit warnings, family visits, dual-persona descriptions)
 
@@ -58,6 +58,10 @@ Max 2-3 trafficking paragraphs may have the trafficker as subject of the FIRST M
 
 ## Required Elements
 
+**Introduction must:**
+- Have NO heading (no "I. INTRODUCTION" or any variant). Flows directly under title/preamble.
+- Be 1 paragraph: client name, trafficking reference, relief requested.
+
 **Physical Presence must include:**
 - "directly connected to the trafficking" (explicit causal statement)
 - HOW trafficking kept client in US (control, fear, documents, dependency)
@@ -75,6 +79,7 @@ Max 2-3 trafficking paragraphs may have the trafficker as subject of the FIRST M
 - Direct quotes for threats when available (in English)
 - Escape barrier explanation in isolation/confinement paragraphs
 - Wage exploitation formula when pay fraud involved: hours worked × promised rate vs actual pay
+- Servitude contrast for ALL forced labor: contrast trafficker's idleness/recreational behavior with victim's forced work (applies to domestic servitude, stash house labor, forced driving, any forced labor — not limited to domestic servitude)
 
 ## Prohibited Words — Always Substitute
 
@@ -88,6 +93,12 @@ facilitated → helped | on numerous occasions → many times | due to the fact 
 confiscated → took | compelled to → forced to | smuggling → NEVER USE
 respectfully request (standalone) → respectfully and humbly ask
 
+**Active Voice — Journey/Process Narration (high-frequency violation zone):**
+Journey and process narration (transportation, stash houses, border crossings) commonly slips into passive voice. Always use trafficker/handler as grammatical subject:
+- "I was told to leave" → "[Name] told me to leave"
+- "I was told to follow a guide" → "They ordered me to follow the guide"
+- "I was still being forced to drive" → "[Name] continued forcing me to drive"
+
 ## Good vs Bad Examples
 
 **Trafficking Detail:**
@@ -97,6 +108,16 @@ respectfully request (standalone) → respectfully and humbly ask
 **VAWA vs Trafficking:**
 - BAD (VAWA): "She insulted me and made me feel small, like nothing I did was enough. I would send my location because I was trying to avoid accusations."
 - GOOD (Trafficking): "She insulted me constantly to keep me obedient. If I showed any resistance to cooking or cleaning after my shift, she would threaten to call immigration. She demanded I send my location to verify I was at work earning the money she required."
+
+**Substance/Body Control (VAWA vs Trafficking):**
+- BAD (VAWA): "He forced me to smoke and drink with him every night, and he would get angry if I refused."
+- GOOD (Trafficking): "He pressured me to drink alcohol with him most nights. When I was hungover the next morning, I was too weak and disoriented to resist his demands that I cook, clean, and drive for him. The drinking kept me unable to think clearly about how to escape."
+
+**Enforcement Specificity:**
+- BAD (vague): "I had seen what they did to people who complained, so I stayed quiet."
+- GOOD (specific): "I had seen the leader beat a man who refused to work until he could not stand up. After that, I was too terrified to complain."
+- BAD (vague): "I did not know what they would do to me if I tried to leave."
+- GOOD (specific): "The leader had already threatened to kill anyone who tried to leave, so I believed he would do the same to me."
 
 **Coerced Compliance:**
 - BAD (voluntary): "I would do those chores fast and right, because my goal was to keep the peace."

@@ -1,19 +1,24 @@
 ---
 name: generate-declaration
-description: Generate a complete T-visa personal declaration from an interview transcript using a 4-phase pipeline.
+description: Generate a complete T-visa personal declaration from an interview transcript. Phases 1-2 run on n8n (via MCP), phases 3-4 run locally.
 disable-model-invocation: true
-allowed-tools: AskUserQuestion, Read, Write, Task
+allowed-tools: AskUserQuestion, Read, Write, Task, mcp__n8n-tvisa__extract_and_classify
 ---
 
 # Generate T-Visa Declaration
 
-Generate a complete T-visa personal declaration from an interview transcript using a 4-phase pipeline.
+Generate a complete T-visa personal declaration from an interview transcript. Phases 1 and 2 run on n8n via MCP tool calls. Phases 3 and 4 run locally as Claude Code agents.
 
 ## Usage
 
 ```
 /t-visa-declaration:generate-declaration [transcript file path or paste transcript]
 ```
+
+## Prerequisites
+
+The n8n MCP server must be configured in `.mcp.json` with server name `n8n-tvisa`. The server must expose one tool:
+- `extract_and_classify` — extracts all facts from the transcript and classifies them into declaration sections
 
 ---
 
@@ -51,31 +56,20 @@ Save the responses. If no transcript was provided in `$ARGUMENTS`, after AskUser
 
 ---
 
-### PHASE 1 — Fact Extraction
+### PHASES 1 & 2 — Extraction + Classification (n8n MCP)
 
-Use the `phase-1-extractor` agent. Provide:
-- The full transcript text
-- Any supplemental case notes provided
+Call the MCP tool `mcp__n8n-tvisa__extract_and_classify` with:
+- `transcript`: The full transcript text
+- `supplemental_notes`: Any supplemental case notes provided (empty string if none)
 
-The agent returns a structured JSON of all extracted facts. Save this as `phase1_output`.
-
-Tell the user: "✓ Phase 1 complete — facts extracted. Running classification..."
-
----
-
-### PHASE 2 — Classification & Gap Analysis
-
-Use the `phase-2-classifier` agent. Provide:
-- The `phase1_output` JSON from Phase 1
-
-The agent returns a JSON with three keys:
+The tool extracts all facts from the transcript and classifies them into declaration sections in a single step. It returns a JSON with three keys:
 - `section_assignments` (facts assigned to each section + paragraph plan for trafficking)
 - `gap_analysis` (critical, important, and minor gaps with follow-up questions)
 - `attorney_decision_points` (decisions requiring attorney input)
 
 Save this as `phase2_output`.
 
-Tell the user: "✓ Phase 2 complete — classification done. I have a few questions before I start writing."
+Tell the user: "Extraction and classification complete. I have a few questions before I start writing."
 
 ---
 
