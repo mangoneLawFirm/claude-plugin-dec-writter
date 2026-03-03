@@ -1,13 +1,13 @@
 ---
 name: generate-declaration
-description: Generate a complete T-visa personal declaration from an interview transcript using the 5-phase pipeline. Produces two outputs: the declaration and attorney review notes.
+description: Generate a complete T-visa personal declaration from an interview transcript using a 4-phase pipeline.
 disable-model-invocation: true
 allowed-tools: AskUserQuestion, Read, Write, Task
 ---
 
 # Generate T-Visa Declaration
 
-Generate a complete T-visa personal declaration from an interview transcript using the 5-phase pipeline. Produces two outputs: the declaration and attorney review notes.
+Generate a complete T-visa personal declaration from an interview transcript using a 4-phase pipeline.
 
 ## Usage
 
@@ -260,41 +260,26 @@ Wait for all Batch A and Batch B tasks to finish. Then assemble the `accumulated
 
 ---
 
-### PHASE 4 + PHASE 5 — Run in Parallel
+### PHASE 4 — Coherence Review
 
-Launch both agents **simultaneously** as parallel Task calls:
-
-**Phase 4 — Coherence Review:**
 Use the `phase-4-reviewer` agent. Provide:
 - The complete `accumulated_draft`
 
 The agent returns the corrected final declaration. Save as `final_declaration`.
 
-**Phase 5 — Attorney Notes:**
-Use the `phase-5-notes` agent. Provide:
-- The `accumulated_draft` (the pre-review assembled declaration — Phase 5 analyzes gaps and weaknesses, not prose quality)
-- The `phase2_output.gap_analysis` (for gaps not resolved by user answers)
-- The `phase2_output.attorney_decision_points`
-
-The agent returns the attorney notes document. Save as `attorney_notes`.
-
-**Wait for both to complete before proceeding to Output.**
-
 ---
 
 ## Output
 
-After Phase 5 completes:
+After Phase 4 completes:
 
 1. Write the declaration to: `output/[client_name]_declaration.md`
-2. Write the attorney notes to: `output/[client_name]_attorney_notes.md`
 
 Create the `output/` directory if it doesn't exist.
 
 Then tell the user:
 > Done! I've generated:
 > - **Declaration**: `output/[client_name]_declaration.md` (~[word_count] words)
-> - **Attorney Notes**: `output/[client_name]_attorney_notes.md`
 >
 > Quick stats:
 > - Total word count: [N]
