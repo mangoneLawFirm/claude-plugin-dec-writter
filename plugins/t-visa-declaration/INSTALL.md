@@ -11,26 +11,28 @@ Open Claude desktop → Settings → Plugins → Install from file → select `t
 
 Or drag the `.plugin` file into the Cowork chat window.
 
-## Step 2 — Configure n8n
+## Step 2 — Configure MCP
 
-The plugin connects to n8n via MCP (Server-Sent Events). The default URL is:
+The plugin connects to n8n via MCP (Server-Sent Events). Copy the template and fill in your n8n URL:
 
+```bash
+cp .mcp.json.example .mcp.json
 ```
-https://n8n.n8nmanguito.lat/mcp/extract-dec-events
-```
 
-If your n8n instance is at a different URL, edit `.mcp.json` inside the plugin directory:
+Then edit `.mcp.json` and replace the placeholder URL with your n8n instance URL:
 
 ```json
 {
   "mcpServers": {
     "n8n-tvisa": {
       "type": "sse",
-      "url": "YOUR_N8N_URL_HERE"
+      "url": "https://your-n8n-instance.example.com/mcp/extract-dec-events"
     }
   }
 }
 ```
+
+> **Note:** `.mcp.json` is gitignored — your server URL will never be pushed to the repository.
 
 ### n8n Workflow Requirements
 

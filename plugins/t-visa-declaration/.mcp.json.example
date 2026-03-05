@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "n8n-tvisa": {
+      "type": "sse",
+      "url": "https://your-n8n-instance.example.com/mcp/extract-dec-events"
+    }
+  }
+}
