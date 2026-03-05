@@ -1,9 +1,9 @@
 {
   "name": "t-visa-declaration",
-  "description": "T-Visa personal declaration writer. Generates trafficking victim declarations from interview transcripts using a hybrid pipeline: extraction and classification via n8n MCP, writing and review via local Claude agents. Built-in quality checks from 8 rounds of attorney feedback.",
-  "version": "2.0.0",
+  "version": "3.0.0",
+  "description": "Generate T-visa personal declarations from interview transcripts using a 4-phase pipeline: extraction, classification, writing, and review. Phases 1-2 run on n8n via MCP, phases 3-4 run locally with dedicated agents.",
   "author": {
-    "name": "Dec Writer"
+    "name": "Mangone Law Firm LLC"
   },
-  "homepage": "https://github.com/your-org/t-visa-declaration-plugin"
+  "keywords": ["t-visa", "declaration", "immigration", "trafficking", "legal"]
 }
