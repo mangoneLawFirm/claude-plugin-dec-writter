@@ -1,5 +1,5 @@
 {
-  "name": "t-visa-declaration",
+  "name": "t-visa-declaration-beta",
   "version": "3.0.0",
   "description": "Generate T-visa personal declarations from interview transcripts using a 4-phase pipeline: extraction, classification, writing, and review. Phases 1-2 run on n8n via MCP, phases 3-4 run locally with dedicated agents.",
   "author": {
